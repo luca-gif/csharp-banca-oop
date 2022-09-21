@@ -1,18 +1,17 @@
 ﻿// See https://aka.ms/new-console-template for more information
 public class Customer
 {
-        public Customer(string name, string lastname, string codiceFiscale, int salary)
+    public string Name { get; set; }
+    public string Lastname { get; set; }
+    public string FiscalCode { get; set; }
+    public int Salary { get; set; }
+
+    public Customer(string name, string lastname, string fiscalCode, int salary)
     {
         this.Name = name;
         this.Lastname = lastname;
-        this.CodiceFiscale = codiceFiscale;
+        this.FiscalCode = fiscalCode;
         this.Salary = salary;
     }
 
-    public string Name { get; set; }
-    public string Lastname { get; set; }
-
-    public string CodiceFiscale { get; set; }
-
-    public int Salary { get; set; }
 }

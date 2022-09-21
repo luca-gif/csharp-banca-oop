@@ -1,17 +1,41 @@
 ﻿// See https://aka.ms/new-console-template for more information
 public class Bank
 {
-  
-    public Bank(string name, List<Bank> customers, List<Bank> loan)
+    string Name { get; set; }
+
+    List<Customer> Customers { get; set; }
+
+    List<Loan> Loan { get; set; }
+
+    public Bank(string name)
     {
-        this.Name = name;
-        this.Customers = customers;
-        this.Loan = loan;
+        Name = name;
+        Customers = new List<Customer>();
+        Loan = new List<Loan>();
     }
 
-    public string Name { get; set; }
+    // Aggiungere nuovo cliente
 
-    public List<Bank> Customers { get; set; }
+    public void addNewCustomer(Customer newCustomer)
+    {
+        Customers.Add(newCustomer);
+    }
 
-    public List<Bank> Loan { get; set; }
+    // Modificare cliente
+
+    public void editCustomer(Customer customerToEdit, Customer customerEdited)
+    {
+        int customerIndex = 0;
+
+        foreach (Customer customer in Customers)
+        {
+            if(customer == customerToEdit) customerIndex = Customers.IndexOf(customer);
+                            
+        }
+
+        Customers[customerIndex] = customerEdited;
+    }
 }
+
+
+

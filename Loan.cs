@@ -1,26 +1,22 @@
 ﻿// See https://aka.ms/new-console-template for more information
 public class Loan
 {
+    public int Id { get; set; }
+    public string LoanHolder { get; set; }
+    public double Amount { get; set; }
+    public int PaymentNumber { get; set; }
+    public DateTime Start { get; set; }
+    public DateTime End { get; set; }
 
-    public Loan(int id, string loanHolder, int amount, int paymentNumber, string start, string end)
+    public Loan(int id, string loanHolder, double amount, int paymentNumber, DateTime start, DateTime end)
     {
-        int Id = id;
-        string LoanHolder = loanHolder;
-        int Amount = amount;
-        int PaymentNumber = paymentNumber;
-        string Start = start;
-        string End = end;
+         Id = id;
+         LoanHolder = loanHolder;
+         Amount = amount;
+         PaymentNumber = paymentNumber;
+         Start = start;
+         End = end;
     }
 
-    public int Id { get; set; }
 
-    public string LoanHolder { get; set; }
-
-    public int Amount { get; set; }
-
-    public int PaymentNumber { get; set; }
-
-    public string Start { get; set; }
-
-    public string End { get; set; }
 }
