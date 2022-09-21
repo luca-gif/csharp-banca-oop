@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System;
+
 public class Bank
 {
     string Name { get; set; }
@@ -25,16 +27,28 @@ public class Bank
 
     public void editCustomer(Customer customerToEdit, Customer customerEdited)
     {
-        int customerIndex = 0;
+        int index = 0;
 
         foreach (Customer customer in Customers)
         {
-            if(customer == customerToEdit) customerIndex = Customers.IndexOf(customer);
-                            
+            if (customer == customerToEdit) index = Customers.IndexOf(customer);
+            else Console.WriteLine("Questo cliente non esiste");
         }
 
-        Customers[customerIndex] = customerEdited;
+        Customers[index] = customerEdited;
     }
+
+    // Cercare cliente
+
+    public void findCustomer(Customer customerToFind)
+    {
+        foreach (Customer customer in Customers)
+        {
+            if (Customers.Contains(customerToFind)) Console.WriteLine(customer);
+            else Console.WriteLine("Cliente non trovato");
+        }
+    }
+
 }
 
 
