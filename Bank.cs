@@ -44,9 +44,24 @@ public class Bank
     {
         foreach (Customer customer in Customers)
         {
-            if (Customers.Contains(customerToFind)) Console.WriteLine(customer);
+            if (customer == customerToFind) Console.WriteLine(customer);
             else Console.WriteLine("Cliente non trovato");
         }
+    }
+
+    // Cercare prestito
+
+    public List<Loan> addLoan(string customerFiscalCode)
+    {
+        List<Loan> customersLoans = new List<Loan>();
+        
+        foreach(Loan loanItem in Loan)
+        {
+            if(customerFiscalCode == loanItem.CustomerFiscalCode) customersLoans.Add(loanItem);
+        }
+
+        return customersLoans;
+
     }
 
 }

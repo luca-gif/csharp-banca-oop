@@ -5,13 +5,15 @@ public class Loan
     public string LoanHolder { get; set; }
     public double Amount { get; set; }
     public int PaymentNumber { get; set; }
+    public string CustomerFiscalCode { get; set; }
     public DateTime Start { get; set; }
     public DateTime End { get; set; }
 
-    public Loan(int id, string loanHolder, double amount, int paymentNumber, DateTime start, DateTime end)
+    public Loan(int id, string loanHolder, string customerFiscalCode, double amount, int paymentNumber, DateTime start, DateTime end)
     {
          Id = id;
          LoanHolder = loanHolder;
+        CustomerFiscalCode = customerFiscalCode;
          Amount = amount;
          PaymentNumber = paymentNumber;
          Start = start;
