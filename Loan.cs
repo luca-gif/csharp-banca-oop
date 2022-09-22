@@ -2,13 +2,13 @@
 public class Loan
 {
     public int Id { get; set; }
-    public string LoanOwner { get; }
+    public Customer LoanOwner { get; }
     public int Amount { get; }
     public int PaymentNumber { get; }
     public DateTime Start { get; }
     public DateTime End { get; set; }
 
-    public Loan(string loanOwner, int amount, int paymentNumber, DateTime start)
+    public Loan(Customer loanOwner, int amount, int paymentNumber, DateTime start)
     {
          this.LoanOwner = loanOwner;
          this.Amount = amount;

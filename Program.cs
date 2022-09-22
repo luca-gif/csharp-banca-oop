@@ -10,8 +10,8 @@ Customer customer2 = new Customer("Marco", "Verdi", "d15d15", 25000);
 myBank.Customers.Add(customer1);
 myBank.Customers.Add(customer2);
 
-myBank.Loans.Add(new Loan(customer1.Name, 44500, 8, new DateTime(2022, 8, 20)));
-myBank.Loans.Add(new Loan(customer2.Name, 31500, 11, new DateTime(2022, 11, 02)));
+myBank.Loans.Add(new Loan(customer1, 44500, 8, new DateTime(2022, 8, 20)));
+myBank.Loans.Add(new Loan(customer2, 31500, 11, new DateTime(2022, 11, 02)));
 
 // Faccio scegliere allo user cosa fare
 
@@ -61,10 +61,9 @@ else if(command == "prestiti")
    else if(choose == "cercare")
     {
         Console.WriteLine("Inserisci il codice fiscale del cliente");
-        string codice;
-        codice = Console.ReadLine();
+        string codice = Console.ReadLine();
 
-        //findLoan(codice);
+        findLoan(codice);
     }
 }
 
@@ -176,7 +175,7 @@ void addLoan(string cf)
             Console.WriteLine("Inserisci il numero delle rate");
             int payment = Int32.Parse(Console.ReadLine());
 
-            myBank.Loans.Add(new Loan(customer.Name, amount, payment, DateTime.Now));
+            myBank.Loans.Add(new Loan(customer, amount, payment, DateTime.Now));
         }
     }
 }
@@ -185,4 +184,18 @@ void addLoan(string cf)
 
 Console.WriteLine("Inserisci il Codice Fiscale del cliente");
 string codiceFiscale = Console.ReadLine();
+
+void findLoan(string codiceFiscale)
+{
+    int paymentToPay = 0;
+    int loansQuantity = 1;
+
+    foreach(Loan loan in loans)
+    {
+        if (loan.LoanOwner.FiscalCode == codiceFiscale)
+        {
+            Console.WriteLine($"{loan.LoanOwner.Name} ha {loansQuantity} prestito di {loan.Amount}€");
+        }
+    }
+}
 
