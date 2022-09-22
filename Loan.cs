@@ -2,23 +2,25 @@
 public class Loan
 {
     public int Id { get; set; }
-    public string LoanHolder { get; set; }
-    public double Amount { get; set; }
-    public int PaymentNumber { get; set; }
-    public string CustomerFiscalCode { get; set; }
-    public DateTime Start { get; set; }
+    public string LoanOwner { get; }
+    public int Amount { get; }
+    public int PaymentNumber { get; }
+    public DateTime Start { get; }
     public DateTime End { get; set; }
 
-    public Loan(int id, string loanHolder, string customerFiscalCode, double amount, int paymentNumber, DateTime start, DateTime end)
+    public Loan(string loanOwner, int amount, int paymentNumber, DateTime start)
     {
-         Id = id;
-         LoanHolder = loanHolder;
-        CustomerFiscalCode = customerFiscalCode;
-         Amount = amount;
-         PaymentNumber = paymentNumber;
-         Start = start;
-         End = end;
+         this.LoanOwner = loanOwner;
+         this.Amount = amount;
+         this.PaymentNumber = paymentNumber;
+         this.Start = start;
+         this.End = endPayment();
     }
 
+    public DateTime endPayment()
+    {
+        End = Start.AddMonths(Amount / PaymentNumber);
+        return End;
+    }
 
 }

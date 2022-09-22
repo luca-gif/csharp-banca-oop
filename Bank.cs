@@ -3,66 +3,18 @@ using System;
 
 public class Bank
 {
-    string Name { get; set; }
+    string Name { get; }
+    
+    public List<Customer> Customers { get; set; }
 
-    List<Customer> Customers { get; set; }
+    public List<Loan> Loans { get; set; }
 
-    List<Loan> Loan { get; set; }
-
-    public Bank(string name)
+    public Bank(string name, List<Customer> customers, List<Loan> loan)
     {
-        Name = name;
-        Customers = new List<Customer>();
-        Loan = new List<Loan>();
-    }
-
-    // Aggiungere nuovo cliente
-
-    public void addNewCustomer(Customer newCustomer)
-    {
-        Customers.Add(newCustomer);
-    }
-
-    // Modificare cliente
-
-    public void editCustomer(Customer customerToEdit, Customer customerEdited)
-    {
-        int index = 0;
-
-        foreach (Customer customer in Customers)
-        {
-            if (customer == customerToEdit) index = Customers.IndexOf(customer);
-            else Console.WriteLine("Questo cliente non esiste");
-        }
-
-        Customers[index] = customerEdited;
-    }
-
-    // Cercare cliente
-
-    public void findCustomer(Customer customerToFind)
-    {
-        foreach (Customer customer in Customers)
-        {
-            if (customer == customerToFind) Console.WriteLine(customer);
-            else Console.WriteLine("Cliente non trovato");
-        }
-    }
-
-    // Cercare prestito
-
-    public List<Loan> addLoan(string customerFiscalCode)
-    {
-        List<Loan> customersLoans = new List<Loan>();
-        
-        foreach(Loan loanItem in Loan)
-        {
-            if(customerFiscalCode == loanItem.CustomerFiscalCode) customersLoans.Add(loanItem);
-        }
-
-        return customersLoans;
-
-    }
+        this.Name = name;
+        this.Customers = customers;
+        this.Loans = loan;
+    }   
 
 }
 
