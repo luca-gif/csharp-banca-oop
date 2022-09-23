@@ -194,7 +194,14 @@ void findLoan(string codiceFiscale)
     {
         if (loan.LoanOwner.FiscalCode == codiceFiscale)
         {
-            Console.WriteLine($"{loan.LoanOwner.Name} ha {loansQuantity} prestito di {loan.Amount}€");
+            try
+            {
+                Console.WriteLine($"{loan.LoanOwner.Name} ha {loansQuantity} prestito di {loan.Amount}€");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
